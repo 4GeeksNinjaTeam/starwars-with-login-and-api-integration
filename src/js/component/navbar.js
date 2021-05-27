@@ -18,6 +18,7 @@ export const Navbar = () => {
 						</span>
 					</Link>
 					<div className="ml-auto">
+						{}
 						<div className="btn-group">
 							<button
 								type="button"

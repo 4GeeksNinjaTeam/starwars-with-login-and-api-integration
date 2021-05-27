@@ -8,9 +8,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			charactersDetails: {},
 			planetsDetails: {},
 			vehiclesDetails: {},
-			allCharactersData: []
+			allCharactersData: [],
+			userLoggedIn: []
 		},
 		actions: {
+			login: async (email, password) => {
+				let myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+				var raw = JSON.stringify({
+					email: email,
+					password: password
+				});
+				let requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+				const restLogin = await fetch(process.env.BACKEND_LOGIN_URL, requestOptions);
+				const dataLogin = await restLogin.json();
+				sessionStorage.setItem("token", dataLogin.token);
+				setStore({ userLoggedIn: dataLogin.user });
+			},
 			loadData: () => {
 				const baseURL = "https://www.swapi.tech/api/";
 				const baseURLAllCharactersData = "https://akabab.github.io/starwars-api/api/all.json";
