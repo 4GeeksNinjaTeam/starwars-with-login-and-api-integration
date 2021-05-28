@@ -87,6 +87,19 @@ export const Navbar = () => {
 										);
 									})}
 								</ul>
+								<button
+									type="button"
+									className="btn btn-danger dropdown-toggle"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false">
+									{store.userLoggedIn.first_name + " " + store.userLoggedIn.last_name}
+								</button>
+								<div className="dropdown-menu">
+									<Link to="/logout" className="dropdown-item" href="#">
+										Logout
+									</Link>
+								</div>
 							</div>
 						) : (
 							<div className="dropdown">
