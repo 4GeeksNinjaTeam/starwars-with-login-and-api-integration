@@ -25,7 +25,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: raw,
 					redirect: "follow"
 				};
-				const restLogin = await fetch(process.env.BACKEND_LOGIN_URL, requestOptions);
+
+				const restLogin = await fetch(
+					"https://3001-amethyst-peacock-2a6hapgg.ws-us08.gitpod.io" + "/login",
+					requestOptions
+				);
 				const dataLogin = await restLogin.json();
 				sessionStorage.setItem("token", dataLogin.token);
 				setStore({ userLoggedIn: dataLogin.user });
