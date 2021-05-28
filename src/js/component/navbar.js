@@ -89,7 +89,22 @@ export const Navbar = () => {
 								</ul>
 							</div>
 						) : (
-							"no logeado"
+							<div className="dropdown">
+								<button
+									className="btn btn-danger dropdown-toggle"
+									type="button"
+									id="dropdownMenu2"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false">
+									Get StarWars User!
+								</button>
+								<div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+									<button className="dropdown-item" type="button">
+										Register
+									</button>
+								</div>
+							</div>
 						)}
 					</div>
 				</div>
