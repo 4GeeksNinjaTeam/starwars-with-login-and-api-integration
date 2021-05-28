@@ -29,63 +29,79 @@ export const Navbar = () => {
 									Favorites <span className="badge badge-light">{store.favorites.length}</span>
 								</button>
 								<ul className="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-									{store.favorites.map((item, index) => {
-										return (
-											<li key={`${index}`}>
-												{item.type === "C" ? (
-													<div style={style}>
-														<span className="dropdown-item">
-															<Link
-																to={
-																	"/cdetails/" +
-																	actions.findIndexInCharacters(item.name)
-																}>
-																{item.name}
-															</Link>
-														</span>
-														<span
-															className="dropdown-item"
-															onClick={() => actions.delToFavorites(item.name)}>
-															<i className="fa fa-trash float-right" aria-hidden="true" />
-														</span>
-													</div>
-												) : item.type === "P" ? (
-													<div style={style}>
-														<span className="dropdown-item">
-															<Link
-																to={
-																	"/pdetails/" + actions.findIndexInPlanets(item.name)
-																}>
-																{item.name}
-															</Link>
-														</span>
-														<span
-															className="dropdown-item"
-															onClick={() => actions.delToFavorites(item.name)}>
-															<i className="fa fa-trash float-right" aria-hidden="true" />
-														</span>
-													</div>
-												) : (
-													<div style={style}>
-														<span className="dropdown-item">
-															<Link
-																to={
-																	"/vdetails/" +
-																	actions.findIndexInVehicles(item.name)
-																}>
-																{item.name}
-															</Link>
-														</span>
-														<span
-															className="dropdown-item"
-															onClick={() => actions.delToFavorites(item.name)}>
-															<i className="fa fa-trash float-right" aria-hidden="true" />
-														</span>
-													</div>
-												)}
-											</li>
-										);
-									})}
+									{store.favorites ? (
+										store.favorites.map((item, index) => {
+											return (
+												<li key={`${index}`}>
+													{item.type === "C" ? (
+														<div style={style}>
+															<span className="dropdown-item">
+																<Link
+																	to={
+																		"/cdetails/" +
+																		actions.findIndexInCharacters(item.name)
+																	}>
+																	{item.name}
+																</Link>
+															</span>
+															<span
+																className="dropdown-item"
+																onClick={() => actions.delToFavorites(item.name)}>
+																<i
+																	className="fa fa-trash float-right"
+																	aria-hidden="true"
+																/>
+															</span>
+														</div>
+													) : item.type === "P" ? (
+														<div style={style}>
+															<span className="dropdown-item">
+																<Link
+																	to={
+																		"/pdetails/" +
+																		actions.findIndexInPlanets(item.name)
+																	}>
+																	{item.name}
+																</Link>
+															</span>
+															<span
+																className="dropdown-item"
+																onClick={() => actions.delToFavorites(item.name)}>
+																<i
+																	className="fa fa-trash float-right"
+																	aria-hidden="true"
+																/>
+															</span>
+														</div>
+													) : (
+														<div style={style}>
+															<span className="dropdown-item">
+																<Link
+																	to={
+																		"/vdetails/" +
+																		actions.findIndexInVehicles(item.name)
+																	}>
+																	{item.name}
+																</Link>
+															</span>
+															<span
+																className="dropdown-item"
+																onClick={() => actions.delToFavorites(item.name)}>
+																<i
+																	className="fa fa-trash float-right"
+																	aria-hidden="true"
+																/>
+															</span>
+														</div>
+													)}
+												</li>
+											);
+										})
+									) : (
+										<li>
+											<span className="dropdown-item">Sin elementos</span>
+										</li>
+									)}
 								</ul>
 								<button
 									type="button"
