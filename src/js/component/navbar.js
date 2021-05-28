@@ -100,9 +100,16 @@ export const Navbar = () => {
 									Get StarWars User!
 								</button>
 								<div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-									<button className="dropdown-item" type="button">
-										Register
-									</button>
+									<Link to="/register">
+										<button className="dropdown-item" type="button">
+											<i className="fa fa-user-plus" aria-hidden="true" /> Register
+										</button>
+									</Link>
+									<Link to="/login">
+										<button className="dropdown-item" type="button">
+											<i className="fa fa-key" aria-hidden="true" /> Login
+										</button>
+									</Link>
 								</div>
 							</div>
 						)}
