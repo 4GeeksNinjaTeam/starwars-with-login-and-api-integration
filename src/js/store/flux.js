@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetsDetails: {},
 			vehiclesDetails: {},
 			allCharactersData: [],
-			userLoggedIn: []
+			userLoggedIn: null
 		},
 		actions: {
 			login: async (email, password) => {
