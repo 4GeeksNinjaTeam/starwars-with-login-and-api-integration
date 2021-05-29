@@ -53,7 +53,7 @@ export const Login = () => {
 										placeholder="Ingrese su password"
 									/>
 								</div>
-								<div>
+								<div className={store.userFailed ? "d-inline" : "d-none"}>
 									<p className="alert alert-danger">{store.userFailed ? store.userFailed : ""}</p>
 								</div>
 								<div className="col-lg-12 loginbttm">

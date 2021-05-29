@@ -34,9 +34,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const dataLogin = await restLogin.json();
 				if (dataLogin.token) {
 					sessionStorage.setItem("token", dataLogin.token);
+					sessionStorage.setItem("userDataEmail", dataLogin.user.email);
 					setStore({ userLoggedIn: dataLogin.user });
 				} else setStore({ userFailed: dataLogin.message });
 			},
+			logout: async () => {},
 			loadData: () => {
 				const baseURL = "https://www.swapi.tech/api/";
 				const baseURLAllCharactersData = "https://akabab.github.io/starwars-api/api/all.json";
