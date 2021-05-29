@@ -6,6 +6,7 @@ export const Login = () => {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	//const [resultLogin, setResultLogin] = useState("");
 
 	const validateForm = () => {
 		return email.length > 0 && password.length > 0;
@@ -13,7 +14,7 @@ export const Login = () => {
 
 	const handleSubmit = e => {
 		event.preventDefault();
-		const resultLogin = actions.login(email, password);
+		actions.login(email, password);
 	};
 
 	return (
@@ -52,7 +53,9 @@ export const Login = () => {
 										placeholder="Ingrese su password"
 									/>
 								</div>
-
+								<div>
+									<p className="alert alert-danger">{store.userFailed ? store.userFailed : ""}</p>
+								</div>
 								<div className="col-lg-12 loginbttm">
 									<div className="col-lg-6 login-btm login-text" />
 									<div className="col-lg-6 login-btm login-button">

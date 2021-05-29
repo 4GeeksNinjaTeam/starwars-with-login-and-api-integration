@@ -9,7 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetsDetails: {},
 			vehiclesDetails: {},
 			allCharactersData: [],
-			userLoggedIn: null
+			userLoggedIn: null,
+			userFailed: null
 		},
 		actions: {
 			login: async (email, password) => {
@@ -31,8 +32,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					requestOptions
 				);
 				const dataLogin = await restLogin.json();
-				sessionStorage.setItem("token", dataLogin.token);
-				setStore({ userLoggedIn: dataLogin.user });
+				if (dataLogin.token) {
+					sessionStorage.setItem("token", dataLogin.token);
+					setStore({ userLoggedIn: dataLogin.user });
+				} else setStore({ userFailed: dataLogin.message });
 			},
 			loadData: () => {
 				const baseURL = "https://www.swapi.tech/api/";

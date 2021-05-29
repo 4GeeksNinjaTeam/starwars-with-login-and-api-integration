@@ -32,7 +32,7 @@ export const Navbar = () => {
 									<ul
 										className="dropdown-menu dropdown-menu-left"
 										aria-labelledby="dropdownMenuButton">
-										{store.favorites ? (
+										{store.favorites.length > 0 ? (
 											store.favorites.map((item, index) => {
 												return (
 													<li key={`${index}`}>
@@ -110,7 +110,7 @@ export const Navbar = () => {
 								<div className="btn-group">
 									<button
 										type="button"
-										className="btn btn-danger dropdown-toggle"
+										className="btn btn-success dropdown-toggle"
 										data-toggle="dropdown"
 										aria-haspopup="true"
 										aria-expanded="false">
@@ -126,13 +126,13 @@ export const Navbar = () => {
 						) : (
 							<div className="dropdown">
 								<button
-									className="btn btn-danger dropdown-toggle"
+									className="btn btn-success dropdown-toggle"
 									type="button"
 									id="dropdownMenu2"
 									data-toggle="dropdown"
 									aria-haspopup="true"
 									aria-expanded="false">
-									Get StarWars User!
+									Get StarWar User!
 								</button>
 								<div className="dropdown-menu" aria-labelledby="dropdownMenu2">
 									<Link to="/register">
